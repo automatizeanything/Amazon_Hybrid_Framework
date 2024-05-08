@@ -10,7 +10,7 @@ public class utilityFecthProperty {
     private static Map<String, String> locatermap = new HashMap<>();
 
     public static String fetchPropertyValue(String key) throws IOException {
-        FileInputStream file = new FileInputStream("./src/test/resources/Config/config.properties");
+        FileInputStream file = new FileInputStream(constant.CONFIG_PROPERTIES_DIRECTORY);
         Properties property = new Properties();
         property.load(file);
         for (Object k : property.keySet()) {

@@ -1,5 +1,7 @@
 package base;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -12,6 +14,7 @@ import java.io.IOException;
 public class initializeDriver {
 
     //This method is used for driver initialization
+    @Before
     public static void initDriver() throws IOException {
         WebDriver driver = null;
         //browser value is fetched from property file
@@ -33,9 +36,13 @@ public class initializeDriver {
                 driver = new ChromeDriver();
                 break;
         }
+        driverContext.setDriver(driver);
+        driverContext.Driver.get(utilityFecthProperty.fetchPropertyValue("url"));
+
     }
 
     //closing the driver instance created
+    @After
     public static void quitDriver() {
         driverContext.Driver.quit();
     }
