@@ -38,6 +38,7 @@ public class initializeDriver {
         }
         driverContext.setDriver(driver);
         driverContext.Driver.get(utilityFecthProperty.fetchPropertyValue("url"));
+        driverContext.Driver.manage().window().maximize();
 
     }
 
